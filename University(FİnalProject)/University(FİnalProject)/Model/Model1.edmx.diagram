@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a852223c461040309306c6a11a4222f6" Name="Diagram1">
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Admin" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.ExamQuestion" Width="1.5" PointX="3" PointY="17.25" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Group" Width="1.5" PointX="1.5" PointY="21.875" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Groups_Subjects" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Score" Width="1.5" PointX="6" PointY="7.5" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Student" Width="1.5" PointX="3.75" PointY="21.375" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Subject" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Subjects_Teachers" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Teacher_Group_Subject" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="University_Final_ProjectModel.Teacher" Width="1.5" PointX="0.75" PointY="3.375" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK_ExamQuestions_Subjects" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK__Groups_Su__Group__45F365D3" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK__Students__Group___403A8C7D" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK_Teacher_Group_Subject_Groups" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK__Groups_Su__Subje__46E78A0C" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK__Scores__Student___4F7CD00D" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK__Scores__Subject___5070F446" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK_Scores_Teacher" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK__Subjects___Subje__49C3F6B7" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK_Teacher_Group_Subject_Subjects" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK__Subjects___Teach__4AB81AF0" />
+        <AssociationConnector Association="University_Final_ProjectModel.FK_Teacher_Group_Subject_Teachers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

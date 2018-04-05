@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="University_Final_ProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="University_Final_ProjectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="University_Final_ProjectModel.Admin" />
+    <EntitySet Name="ExamQuestions" EntityType="University_Final_ProjectModel.ExamQuestion" />
+    <EntitySet Name="Groups" EntityType="University_Final_ProjectModel.Group" />
+    <EntitySet Name="Groups_Subjects" EntityType="University_Final_ProjectModel.Groups_Subjects" />
+    <EntitySet Name="Scores" EntityType="University_Final_ProjectModel.Score" />
+    <EntitySet Name="Students" EntityType="University_Final_ProjectModel.Student" />
+    <EntitySet Name="Subjects" EntityType="University_Final_ProjectModel.Subject" />
+    <EntitySet Name="Subjects_Teachers" EntityType="University_Final_ProjectModel.Subjects_Teachers" />
+    <EntitySet Name="sysdiagrams" EntityType="University_Final_ProjectModel.sysdiagram" />
+    <EntitySet Name="Teacher_Group_Subject" EntityType="University_Final_ProjectModel.Teacher_Group_Subject" />
+    <EntitySet Name="Teachers" EntityType="University_Final_ProjectModel.Teacher" />
+    <AssociationSet Name="FK_ExamQuestions_Subjects" Association="University_Final_ProjectModel.FK_ExamQuestions_Subjects">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="ExamQuestion" EntitySet="ExamQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Groups_Su__Group__45F365D3" Association="University_Final_ProjectModel.FK__Groups_Su__Group__45F365D3">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="Groups_Subjects" EntitySet="Groups_Subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__Group___403A8C7D" Association="University_Final_ProjectModel.FK__Students__Group___403A8C7D">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_Group_Subject_Groups" Association="University_Final_ProjectModel.FK_Teacher_Group_Subject_Groups">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="Teacher_Group_Subject" EntitySet="Teacher_Group_Subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Groups_Su__Subje__46E78A0C" Association="University_Final_ProjectModel.FK__Groups_Su__Subje__46E78A0C">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Groups_Subjects" EntitySet="Groups_Subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Scores__Student___4F7CD00D" Association="University_Final_ProjectModel.FK__Scores__Student___4F7CD00D">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Score" EntitySet="Scores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Scores__Subject___5070F446" Association="University_Final_ProjectModel.FK__Scores__Subject___5070F446">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Score" EntitySet="Scores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scores_Teacher" Association="University_Final_ProjectModel.FK_Scores_Teacher">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Score" EntitySet="Scores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subjects___Subje__49C3F6B7" Association="University_Final_ProjectModel.FK__Subjects___Subje__49C3F6B7">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Subjects_Teachers" EntitySet="Subjects_Teachers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_Group_Subject_Subjects" Association="University_Final_ProjectModel.FK_Teacher_Group_Subject_Subjects">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Teacher_Group_Subject" EntitySet="Teacher_Group_Subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subjects___Teach__4AB81AF0" Association="University_Final_ProjectModel.FK__Subjects___Teach__4AB81AF0">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Subjects_Teachers" EntitySet="Subjects_Teachers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_Group_Subject_Teachers" Association="University_Final_ProjectModel.FK_Teacher_Group_Subject_Teachers">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Teacher_Group_Subject" EntitySet="Teacher_Group_Subject" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Identification_Code" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExamQuestion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subject_ID" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Correct" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Incorrect1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Incorrect2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Incorrect3" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Subject" Relationship="University_Final_ProjectModel.FK_ExamQuestions_Subjects" FromRole="ExamQuestion" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Groups_Subjects" Relationship="University_Final_ProjectModel.FK__Groups_Su__Group__45F365D3" FromRole="Group" ToRole="Groups_Subjects" />
+    <NavigationProperty Name="Students" Relationship="University_Final_ProjectModel.FK__Students__Group___403A8C7D" FromRole="Group" ToRole="Student" />
+    <NavigationProperty Name="Teacher_Group_Subject" Relationship="University_Final_ProjectModel.FK_Teacher_Group_Subject_Groups" FromRole="Group" ToRole="Teacher_Group_Subject" />
+  </EntityType>
+  <EntityType Name="Groups_Subjects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Group_ID" Type="Int32" Nullable="false" />
+    <Property Name="Subject_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="University_Final_ProjectModel.FK__Groups_Su__Group__45F365D3" FromRole="Groups_Subjects" ToRole="Group" />
+    <NavigationProperty Name="Subject" Relationship="University_Final_ProjectModel.FK__Groups_Su__Subje__46E78A0C" FromRole="Groups_Subjects" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="Score">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Student_ID" Type="Int32" Nullable="false" />
+    <Property Name="Subject_ID" Type="Int32" Nullable="false" />
+    <Property Name="BefareExamScore" Type="Int32" Nullable="false" />
+    <Property Name="AfterExamScore" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="TeacherId" Type="Int32" />
+    <NavigationProperty Name="Student" Relationship="University_Final_ProjectModel.FK__Scores__Student___4F7CD00D" FromRole="Score" ToRole="Student" />
+    <NavigationProperty Name="Subject" Relationship="University_Final_ProjectModel.FK__Scores__Subject___5070F446" FromRole="Score" ToRole="Subject" />
+    <NavigationProperty Name="Teacher" Relationship="University_Final_ProjectModel.FK_Scores_Teacher" FromRole="Score" ToRole="Teacher" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Identification_Code" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Group_ID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="University_Final_ProjectModel.FK__Students__Group___403A8C7D" FromRole="Student" ToRole="Group" />
+    <NavigationProperty Name="Scores" Relationship="University_Final_ProjectModel.FK__Scores__Student___4F7CD00D" FromRole="Student" ToRole="Score" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="ExamQuestions" Relationship="University_Final_ProjectModel.FK_ExamQuestions_Subjects" FromRole="Subject" ToRole="ExamQuestion" />
+    <NavigationProperty Name="Groups_Subjects" Relationship="University_Final_ProjectModel.FK__Groups_Su__Subje__46E78A0C" FromRole="Subject" ToRole="Groups_Subjects" />
+    <NavigationProperty Name="Scores" Relationship="University_Final_ProjectModel.FK__Scores__Subject___5070F446" FromRole="Subject" ToRole="Score" />
+    <NavigationProperty Name="Subjects_Teachers" Relationship="University_Final_ProjectModel.FK__Subjects___Subje__49C3F6B7" FromRole="Subject" ToRole="Subjects_Teachers" />
+    <NavigationProperty Name="Teacher_Group_Subject" Relationship="University_Final_ProjectModel.FK_Teacher_Group_Subject_Subjects" FromRole="Subject" ToRole="Teacher_Group_Subject" />
+  </EntityType>
+  <EntityType Name="Subjects_Teachers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subject_ID" Type="Int32" Nullable="false" />
+    <Property Name="Teachers_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Subject" Relationship="University_Final_ProjectModel.FK__Subjects___Subje__49C3F6B7" FromRole="Subjects_Teachers" ToRole="Subject" />
+    <NavigationProperty Name="Teacher" Relationship="University_Final_ProjectModel.FK__Subjects___Teach__4AB81AF0" FromRole="Subjects_Teachers" ToRole="Teacher" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Teacher_Group_Subject">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Teacher_ID" Type="Int32" Nullable="false" />
+    <Property Name="Group_ID" Type="Int32" Nullable="false" />
+    <Property Name="Subject_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="University_Final_ProjectModel.FK_Teacher_Group_Subject_Groups" FromRole="Teacher_Group_Subject" ToRole="Group" />
+    <NavigationProperty Name="Subject" Relationship="University_Final_ProjectModel.FK_Teacher_Group_Subject_Subjects" FromRole="Teacher_Group_Subject" ToRole="Subject" />
+    <NavigationProperty Name="Teacher" Relationship="University_Final_ProjectModel.FK_Teacher_Group_Subject_Teachers" FromRole="Teacher_Group_Subject" ToRole="Teacher" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Identification_Code" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Scores" Relationship="University_Final_ProjectModel.FK_Scores_Teacher" FromRole="Teacher" ToRole="Score" />
+    <NavigationProperty Name="Subjects_Teachers" Relationship="University_Final_ProjectModel.FK__Subjects___Teach__4AB81AF0" FromRole="Teacher" ToRole="Subjects_Teachers" />
+    <NavigationProperty Name="Teacher_Group_Subject" Relationship="University_Final_ProjectModel.FK_Teacher_Group_Subject_Teachers" FromRole="Teacher" ToRole="Teacher_Group_Subject" />
+  </EntityType>
+  <Association Name="FK_ExamQuestions_Subjects">
+    <End Type="University_Final_ProjectModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="University_Final_ProjectModel.ExamQuestion" Role="ExamQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ExamQuestion">
+        <PropertyRef Name="Subject_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Groups_Su__Group__45F365D3">
+    <End Type="University_Final_ProjectModel.Group" Role="Group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="University_Final_ProjectModel.Groups_Subjects" Role="Groups_Subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Groups_Subjects">
+        <PropertyRef Name="Group_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__Group___403A8C7D">
+    <End Type="University_Final_ProjectModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="University_Final_ProjectModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Group_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_Group_Subject_Groups">
+    <End Type="University_Final_ProjectModel.Group" Role="Group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="University_Final_ProjectModel.Teacher_Group_Subject" Role="Teacher_Group_Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Teacher_Group_Subject">
+        <PropertyRef Name="Group_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Groups_Su__Subje__46E78A0C">
+    <End Type="University_Final_ProjectModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="University_Final_ProjectModel.Groups_Subjects" Role="Groups_Subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Groups_Subjects">
+        <PropertyRef Name="Subject_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Scores__Student___4F7CD00D">
+    <End Type="University_Final_ProjectModel.Student" Role="Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="University_Final_ProjectModel.Score" Role="Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="Student_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Scores__Subject___5070F446">
+    <End Type="University_Final_ProjectModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="University_Final_ProjectModel.Score" Role="Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="Subject_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scores_Teacher">
+    <End Type="University_Final_ProjectModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+    <End Type="University_Final_ProjectModel.Score" Role="Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subjects___Subje__49C3F6B7">
+    <End Type="University_Final_ProjectModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="University_Final_ProjectModel.Subjects_Teachers" Role="Subjects_Teachers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Subjects_Teachers">
+        <PropertyRef Name="Subject_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_Group_Subject_Subjects">
+    <End Type="University_Final_ProjectModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="University_Final_ProjectModel.Teacher_Group_Subject" Role="Teacher_Group_Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Teacher_Group_Subject">
+        <PropertyRef Name="Subject_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subjects___Teach__4AB81AF0">
+    <End Type="University_Final_ProjectModel.Teacher" Role="Teacher" Multiplicity="1" />
+    <End Type="University_Final_ProjectModel.Subjects_Teachers" Role="Subjects_Teachers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Subjects_Teachers">
+        <PropertyRef Name="Teachers_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_Group_Subject_Teachers">
+    <End Type="University_Final_ProjectModel.Teacher" Role="Teacher" Multiplicity="1" />
+    <End Type="University_Final_ProjectModel.Teacher_Group_Subject" Role="Teacher_Group_Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Teacher_Group_Subject">
+        <PropertyRef Name="Teacher_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
